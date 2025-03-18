@@ -1,6 +1,6 @@
 import React from 'react';
 import './WhatsappChat.css';  // Import CSS for styling
-import whatsappLogo from './../assets/whatsapp.png'; // Adjust the path as necessary
+import whatsappLogo from '../Assets/whatsapp.png'; // Adjust the path as necessary
 
 const Whatsapp = () => {
   return (
