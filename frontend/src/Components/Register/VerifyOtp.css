@@ -1,0 +1,61 @@
+.verify-otp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw; /* Ensure the width is the full viewport width */
+    background-image: url('/src/Components/Assets/boat5.jpg'); /* Adjust this to your image path */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+  
+  .verify-otp-wrapper {
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(234, 228, 228, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 100px;
+    margin-right: 100px;
+  }
+  
+  .verify-otp-wrapper h1 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #37f69a;
+  }
+  
+  .verify-otp-wrapper .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .verify-otp-wrapper input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .verify-otp-wrapper button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .verify-otp-wrapper button:hover {
+    background-color: #45a049;
+  }
+  

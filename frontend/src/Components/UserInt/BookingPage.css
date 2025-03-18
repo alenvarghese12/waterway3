@@ -1,0 +1,98 @@
+/* Container for the booking page */
+.booking-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f9fb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Title for the boat booking */
+  .booking-page h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Labels for the form fields */
+  .booking-page label {
+    display: block;
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  /* Date input fields */
+  .booking-page input[type="date"],
+  .booking-page input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .booking-page input[type="date"]:focus,
+  .booking-page input[type="number"]:focus {
+    border-color: #0056b3;
+    outline: none;
+  }
+  
+  /* Style for 1-hour booking message for speed boats */
+  .booking-page p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the average price calculation text */
+  .booking-page p:nth-of-type(2) {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Booking confirmation button */
+  .confirm-booking-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .confirm-booking-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .booking-page {
+      padding: 15px;
+    }
+  
+    .booking-page h2 {
+      font-size: 22px;
+    }
+  
+    .confirm-booking-button {
+      font-size: 16px;
+    }
+  }
+  

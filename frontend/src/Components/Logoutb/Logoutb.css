@@ -1,0 +1,24 @@
+/* src/Components/LogoutButton/LogoutButton.css */
+.logout-button {
+    background-color: #4336f4; /* Red background for logout button */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    /* margin-bottom: 20px; */
+    /* margin-left: 1500px; */
+  }
+  
+  .logout-button:hover {
+    background-color: #2f2fd3; /* Darker red when hovering */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  .logout-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Add a focus ring */
+  }
+  

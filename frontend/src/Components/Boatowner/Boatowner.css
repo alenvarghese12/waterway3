@@ -1,0 +1,95 @@
+.boatowner-dashboard {
+  text-align: center;
+  padding-top: 50px;
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  /* overflow-y: auto; */
+}
+
+.navbar {
+  background-color: #d7dce1;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Even spacing between items */
+}
+
+.navbar ul li {
+  margin: 0;
+}
+
+.navbar ul li a {
+  color: #0b0c0c;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #34495e;
+  transform: scale(1.05); /* Adds a slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for hover */
+}
+
+h1 {
+  color: #181919;
+  margin-top: 120px; /* Adjusted for fixed navbar */
+  font-size: 36px;
+  font-weight: 700;
+}
+
+
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and username */
+  margin-left: 1000px;
+}
+
+.user-info h4 {
+  color: rgb(10, 8, 8); /* Username in white */
+  margin: 0; /* Remove default margin */
+  
+}
+
+.user-icon {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  border-radius: 50%; /* Circular icon */
+  object-fit: cover; /* Ensure the image fits within the circle */
+}
+/* .boatowner-content {
+  margin-top: 30px;
+  width: 80%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */

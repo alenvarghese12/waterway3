@@ -1,0 +1,48 @@
+/* src/Components/Loginp/WhatsappChat.css */
+
+.whatsapp-chat {
+  position: fixed; /* Fixed position to stay in the corner */
+  bottom:320px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.whatsapp-button {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  background-color: #25D366; /* WhatsApp green color */
+  color: white; /* Text color */
+  padding: 10px 15px; /* Padding around the button */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline from link */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Darker green on hover */
+}
+
+.whatsapp-icon {
+  width: 24px; /* Set width for the icon */
+  height: 24px; /* Set height for the icon */
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.chat-tooltip {
+  display: none; /* Initially hidden */
+  position: absolute; /* Position relative to the button */
+  bottom: 100%; /* Position above the button */
+  right: 50%; /* Center the tooltip */
+  transform: translateX(50%); /* Adjust position */
+  background-color: #333; /* Dark background for tooltip */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Padding for tooltip */
+  border-radius: 5px; /* Rounded corners */
+  white-space: nowrap; /* Prevent text wrapping */
+  z-index: 999; /* Ensure tooltip appears above other elements */
+}
+
+.whatsapp-button:hover .chat-tooltip {
+  display: block; /* Show tooltip on hover */
+}

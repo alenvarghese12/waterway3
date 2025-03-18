@@ -1,0 +1,124 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Full height */
+    padding: 40px;
+    /* background: rgba(58, 51, 51, 0.5); Overlay background */
+  }
+  
+  .login-form {
+    width: 420px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: solid rgb(188, 188, 255);
+    box-shadow: 0 0 10px rgb(85, 85, 233);
+    backdrop-filter: blur(8px);
+    color: aliceblue;
+    border-radius: 20px;
+    padding: 40px;
+  }
+  
+  .login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: aliceblue;
+  }
+  
+  .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(103, 103, 240, 0.3);
+    margin: 20px 0;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    
+  }
+  
+  .input-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .icon {
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    color: aliceblue;
+  }
+  
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14.5px;
+    font-weight: 900;
+    color: aliceblue;
+  }
+  
+  .loginb {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: medium;
+    color: rgb(248, 248, 248);
+    font-weight: 800;
+    background-color: rgb(63, 69, 121);
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .login-button:hover {
+    background-color: rgba(116, 117, 130, 0.8);
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-link a {
+    color: rgb(168, 213, 252);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  .remember-forgot a{
+    color: rgb(206, 208, 209);
+  }
+
+
+
+  .google-login-btn {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+  }
+  
+  .google-login-btn:hover {
+    background-color: #357ae8;
+  }
+  

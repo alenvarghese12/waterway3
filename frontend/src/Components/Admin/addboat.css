@@ -1,0 +1,60 @@
+/* Style for the AddBoat container */
+.add-boat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading style */
+  .add-boat-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form style */
+  .add-boat-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Input field styles */
+  .add-boat-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Submit button style */
+  .add-boat-container button {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-boat-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .add-boat-container button:focus {
+    outline: none;
+  }
+  .add-boat-container button {
+    margin-left: 6px; /* Space between buttons */
+  }
+  .bu{
+    margin-left: 100px; 
+    margin-bottom: 10px; 
+    margin-top: -25px;
+  }

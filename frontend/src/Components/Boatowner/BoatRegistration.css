@@ -1,0 +1,220 @@
+/* Container for the entire form */
+.boat-registration-container {
+  background-color: #f0f4f8; /* Light background */
+  padding: 40px;
+  border-radius: 10px;
+  width: 1000px;
+  max-width: 10000px;
+  margin: 50px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern touch */
+}
+
+/* Heading for the form */
+.boat-registration-container h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Optional: Makes text look sleek */
+  letter-spacing: 1.5px;
+}
+
+/* Form labels */
+.boat-registration-form label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* Input fields */
+.boat-registration-form input,
+.boat-registration-form select,
+.boat-registration-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease; /* Smooth transitions for interactions */
+}
+
+/* Focus styles for input fields */
+.boat-registration-form input:focus,
+.boat-registration-form select:focus,
+.boat-registration-form textarea:focus {
+  outline: none;
+  border-color: #4a90e2; /* Blue accent for focus */
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.2); /* Blue glow on focus */
+}
+
+/* Button styles */
+.boat-registration-form button {
+  display: block;
+  width: 100%;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.boat-registration-form button:hover {
+  background-color: #357ABD; /* Darker shade of blue on hover */
+}
+
+/* Error messages */
+.error {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Textarea styling */
+.boat-registration-form textarea {
+  resize: vertical;
+  min-height: 120px; /* Provides a decent size for input */
+}
+
+/* Form shadow effect */
+.boat-registration-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); /* Light shadow */
+}
+
+/* Additional styles for pincode errors */
+.boat-registration-form input[name="pincode"]:invalid {
+  border-color: #d9534f;
+}
+
+/* Special styles for select dropdown */
+.boat-registration-form select {
+  background-color: #fff;
+  appearance: none; /* Remove default arrow for cross-browser consistency */
+}
+
+/* Style for file input (hide default look and style it) */
+.boat-registration-form input[type="file"] {
+  border: none;
+  font-size: 14px;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.boat-registration-form input[type="file"]::-webkit-file-upload-button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boat-registration-form input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #357ABD;
+}
+
+/* Adjustments for mobile view */
+@media screen and (max-width: 768px) {
+  .boat-registration-container {
+    padding: 20px;
+  }
+
+  .boat-registration-form {
+    padding: 20px;
+  }
+
+  .boat-registration-form button {
+    font-size: 14px;
+  }
+
+  .boat-registration-container h2 {
+    font-size: 22px;
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 400px;
+  z-index: 1;
+}
+
+.boat-registration-form .map-container {
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.price-type {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.price-type > div {
+  display: flex; /* Ensure the radio buttons and labels are in one line */
+  align-items: center;
+  gap: 39px; /* Add space between the radio options */
+}
+
+.price-type label {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.price-type input {
+  margin-right: 10px;
+}
+
+.driver-details {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.driver-details h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  margin: 0;
+}
+  

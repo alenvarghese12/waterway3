@@ -1,0 +1,264 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Top Navbar */
+.top-navbar {
+  background-color: #efeff7;
+  color: rgb(201, 216, 243);
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 60px; /* Set a fixed height for the navbar */
+}
+
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links .nav-link {
+  color: rgb(14, 13, 13);
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links .nav-link:hover {
+  background-color: #cad4f0;
+}
+
+.top-navbar .sidebar-toggle {
+  background: none;
+  border: none;
+  color: rgb(19, 17, 17);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}.navbar-title {
+  color: rgb(32, 31, 31);
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  line-height: 1.2;
+}
+
+.view-boat {
+  margin-left: auto;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+  color: #131414;
+  cursor: pointer;
+}
+
+/* Side Navbar */
+.side-navbar {
+  position: fixed;
+  top: 60px; /* Match the navbar height */
+  left: -200px;
+  width: 200px;
+  background-color: #efeffa;
+  height: calc(100vh - 60px); /* Subtract navbar height from full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.side-navbar.open {
+  left: 0;
+}
+
+.side-navbar .nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.side-navbar .nav-link:hover {
+  background-color: #cebebe;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+  margin-top: 60px; /* Match the navbar height */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: -1040px;
+}
+
+.user-name {
+  color: rgb(32, 31, 31);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+/* Add this new class for the content wrapper */
+.content-wrapper {
+  margin-top: 80px; /* Add margin to push content below navbar */
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  /* Smaller screen adjustments for tablets */
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+
+  .search-box {
+    max-width: 300px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjusting layout for smaller screens like mobile devices */
+  .top-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto; /* Allow navbar to expand on mobile */
+    min-height: 60px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar-title {
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .search-box {
+    max-width: 100%;
+    margin-right: 0;
+    padding: 10px;
+  }
+
+  .side-navbar {
+    width: 180px;
+  }
+
+  .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .content-wrapper {
+    margin-top: 120px; /* Increase top margin for smaller screens */
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 120px; /* Match the increased top margin */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for smaller mobile screens */
+  .navbar-title {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    padding: 8px;
+  }
+
+  .search-input {
+    padding: 10px 35px 10px 15px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    font-size: 18px;
+  }
+
+  .profile-image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+  color: #333;
+}

@@ -1,0 +1,81 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* min-height: 80vh; */
+    /* background: rgba(3, 0, 0, 0.5); */
+    padding: 5px 0px; /* Adjusted padding to align with the fixed position */
+    /* background-color: rgb(58, 60, 103); Black background for the navbar */
+    color: white;
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Make sure it stays on top of other elements */
+    box-shadow: 0 2px 5px rgba(31, 30, 30, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.logo-image {
+    width: 50px; /* Adjust the size of the logo */
+    height: auto; /* Keep the aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+    vertical-align: middle; /* Align the logo vertically with the text */
+}
+.water{
+    display: flex;
+    align-items: center;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    margin-top: 20px;
+    margin-right: 3px;
+   
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+}
+
+/* Button Styles */
+.nav-menu button {
+    background-color: transparent;
+    color: rgb(26, 27, 100); /* White text to contrast with the black background */
+    border: 20px solid rgb(15, 11, 11); /* Border matching text color */
+    padding: 1px 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Outfit, sans-serif;
+    border: none;
+    margin-right: 20px;
+}
+
+/* Hover and Focus Styles */
+.nav-menu button:hover,
+.nav-menu button:focus {
+    background-color: rgb(13, 13, 13); /* Background color on hover/focus */
+    color: rgb(250, 248, 248); /* Text color change on hover/focus */
+    outline: none;
+}
+
+/* Active Button State */
+.nav-menu button:active {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly lighter shade on click */
+    color: black;
+}

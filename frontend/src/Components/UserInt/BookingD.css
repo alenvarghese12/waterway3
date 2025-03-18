@@ -1,0 +1,495 @@
+/* BookingD.css */
+.booking-container {
+    max-width: 10000px; /* Set a maximum width for the container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    /* border: 1px solid #ccc; Add a border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* Light background color */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Subtle shadow */
+
+}
+
+.booking-title {
+    text-align: center; /* Center the title */
+    font-size: 24px; /* Title font size */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.booking-card {
+    width: 800px;
+    border: 1px solid #ddd; /* Border for each booking */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding inside each booking */
+    margin-bottom: 100px; /* Space between bookings */
+    background-color: #fbf7f7; /* White background for each booking */
+    /* box-shadow: 0 1px 5px rgba(255, 255, 255, 0.1);  */
+}
+
+.booking-card h3 {
+    margin: 0 0 10px; /* Space below the heading */
+    font-size: 20px; /* Font size for booking title */
+}
+
+.booking-details {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    margin-bottom: 10px; /* Space below each detail */
+}
+
+.booking-details span {
+    font-weight: bold; /* Bold text for labels */
+}
+
+.no-bookings {
+    text-align: center; /* Center the no bookings message */
+    font-size: 18px; /* Font size for no bookings message */
+    color: #fffefe; /* Gray color for the message */
+    margin-top: 120px; /* Add some space above the message */
+}
+.bookings-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+}
+
+.tab {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab.active {
+    color: #1a73e8;
+    font-weight: 500;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.bookings-content {
+    min-height: 400px;
+}
+
+.no-bookings {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-state-image {
+    margin-bottom: 20px;
+}
+
+.empty-state-image img {
+    width: 200px;
+    height: auto;
+}
+
+.empty-message {
+    font-size: 18px;
+    color: #666;
+}
+
+.bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.booking-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.booking-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.booking-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.booking-info {
+    padding: 15px;
+}
+
+.booking-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.dates {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.price {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.cancel-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.error {
+    text-align: center;
+    padding: 40px;
+    color: #dc3545;
+}
+
+/* Add these new styles for completed bookings */
+.completed-booking-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.booking-header {
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-badge.completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.booking-date {
+    color: #666;
+    font-size: 14px;
+}
+
+.booking-id {
+    color: #666;
+    font-size: 14px;
+}
+
+.booking-content {
+    padding: 20px;
+    display: flex;
+    gap: 24px;
+}
+
+.boat-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.boat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.booking-details {
+    flex: 1;
+}
+
+.boat-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.label {
+    width: 120px;
+    color: #666;
+    font-size: 14px;
+}
+
+.value {
+    color: #32325d;
+    font-weight: 500;
+}
+
+.value.price {
+    color: #2e7d32;
+    font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .booking-content {
+        flex-direction: column;
+    }
+
+    .boat-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .label {
+        width: auto;
+    }
+}
+
+/* Update existing styles */
+.bookings-list.completed {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bookings-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.bookings-header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 16px 0;
+    margin-bottom: 24px;
+    z-index: 100;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bookings-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+    padding: 0 16px;
+}
+
+.tabs-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabs {
+    display: flex;
+    min-width: max-content;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: #1a73e8;
+}
+
+.tab-button.active {
+    color: #1a73e8;
+    font-weight: 500;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .bookings-container {
+        padding: 8px;
+    }
+
+    .bookings-header {
+        padding: 12px 0;
+    }
+
+    .bookings-header h1 {
+        font-size: 20px;
+        padding: 0 12px;
+    }
+
+    .tab-button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bookings-header h1 {
+        font-size: 18px;
+    }
+
+    .tab-button {
+        padding: 8px 12px;
+    }
+}
+
+/* Keep your existing styles below this line */
+.completed-booking-card {
+    /* ... existing styles ... */
+}
+
+/* Add smooth scrolling for the tabs */
+.tabs-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tabs-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.tabs-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Add styles for the content area */
+.bookings-content {
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty state styles */
+.no-bookings {
+    text-align: center;
+    padding: 48px 20px;
+}
+
+.empty-state-image {
+    margin-bottom: 24px;
+}
+
+.empty-state-image img {
+    max-width: 200px;
+    height: auto;
+}
+
+.empty-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+/* Loading and error states */
+.loading, .error {
+    text-align: center;
+    padding: 48px 20px;
+    font-size: 16px;
+}
+
+.error {
+    color: #dc3545;
+}
