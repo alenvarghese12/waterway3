@@ -1,4 +1,4 @@
-import './LoginP.css';
+import './Loginp.css'
 import Background from '../Background/Background';
 import { FaUser, FaLock } from "react-icons/fa";
 import React, { useState,useEffect } from 'react';
