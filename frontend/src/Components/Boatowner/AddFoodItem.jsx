@@ -26,7 +26,7 @@ const AddFoodItem = () => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://localhost:8080/api/auth/user-data', {
+        const response = await axios.get('https://waterway3.onrender.com/api/auth/user-data', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -130,7 +130,7 @@ const AddFoodItem = () => {
         console.log(pair[0] + ': ' + pair[1]);
       }
 
-      const response = await axios.post('http://localhost:8080/api/food/food-items', formData, {
+      const response = await axios.post('https://waterway3.onrender.com/api/food/food-items', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`

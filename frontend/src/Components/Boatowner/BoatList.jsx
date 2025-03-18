@@ -41,7 +41,7 @@ const BoatList = ({ ownerId: propOwnerId }) => {
           throw new Error('No token found');
         }
 
-        const response = await axios.get('http://localhost:8080/api/auth/user-data', {
+        const response = await axios.get('https://waterway3.onrender.com/api/auth/user-data', {
           headers: {
             Authorization: `Bearer ${token}` // Include the token in the Authorization header
           }
@@ -76,7 +76,7 @@ const BoatList = ({ ownerId: propOwnerId }) => {
           throw new Error('Owner ID is not defined');
         }
 
-        const response = await axios.get(`http://localhost:8080/api/boats/boatsdb?ownerId=${localOwnerId}`);
+        const response = await axios.get(`https://waterway3.onrender.com/api/boats/boatsdb?ownerId=${localOwnerId}`);
         console.log('Boats fetched:', response.data);
 
         if (Array.isArray(response.data)) {
@@ -106,7 +106,7 @@ const BoatList = ({ ownerId: propOwnerId }) => {
 
     try {
       // Make a request to set the status to Inactive
-      await axios.put(`http://localhost:8080/api/boats/boatsde/${boatId}`, { status: 'Inactive' });
+      await axios.put(`https://waterway3.onrender.com/api/boats/boatsde/${boatId}`, { status: 'Inactive' });
       
       // Update state to reflect the change
       setBoats(boats.filter(boat => boat._id !== boatId));
@@ -215,7 +215,7 @@ const BoatList = ({ ownerId: propOwnerId }) => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:8080/api/boats/boatsd/${editBoat._id}`, formData);
+      const response = await axios.put(`https://waterway3.onrender.com/api/boats/boatsd/${editBoat._id}`, formData);
       setBoats(boats.map(boat => (boat._id === editBoat._id ? response.data : boat)));
       setEditBoat(null);
       setFormData({
@@ -236,7 +236,7 @@ const BoatList = ({ ownerId: propOwnerId }) => {
   const handleUnavailableDatesSubmit = async (boatId) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/boats/${boatId}/unavailable-dates`,
+        `https://waterway3.onrender.com/api/boats/${boatId}/unavailable-dates`,
         { dates: unavailableDates }
       );
       setUnavailableDates([]); // Clear the dates after submission
@@ -390,10 +390,10 @@ const BoatList = ({ ownerId: propOwnerId }) => {
     <p>Capacity: {boat.capacity}</p>
   </div>
                 <img
-                  src={`http://localhost:8080/uploads/${boat.image}`}
+                  src={`https://waterway3.onrender.com/uploads/${boat.image}`}
                   alt={boat.boatName}
                   className="boat-image"
-                  onClick={() => handleImageClick(`http://localhost:8080/uploads/${boat.image}`)} // Zoom on image click
+                  onClick={() => handleImageClick(`https://waterway3.onrender.com/uploads/${boat.image}`)} // Zoom on image click
                 />
                              <div className="dcontainer">
     <p>Description: {boat.description}</p>

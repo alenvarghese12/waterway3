@@ -10,7 +10,7 @@ const Boatlist = () => {
   useEffect(() => {
     const fetchBoats = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/boats/boatsd');
+        const response = await axios.get('https://waterway3.onrender.com/api/boats/boatsd');
         setBoats(response.data);
         setLoading(false);
       } catch (error) {
@@ -37,7 +37,7 @@ const Boatlist = () => {
         {boats.map((boat) => (
           <div key={boat._id} className="boat-card">
             <img
-              src={`http://localhost:8080/uploads/${boat.image}`} // Assuming boat image is saved in an 'uploads' folder on the server
+              src={`https://waterway3.onrender.com/uploads/${boat.image}`} // Assuming boat image is saved in an 'uploads' folder on the server
               alt={boat.boatName}
               className="boat-image"
             />
@@ -54,7 +54,7 @@ const Boatlist = () => {
               <p><strong>Status:</strong> {boat.status}</p>
               <p><strong>License Number:</strong> {boat.licenseNumber}</p>
               <a
-                href={`http://localhost:8080/uploads/${boat.licenseDocument}`} // Link to view license document
+                href={`https://waterway3.onrender.com/uploads/${boat.licenseDocument}`} // Link to view license document
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -27,7 +27,7 @@ const UserBoatList = () => {
 
   const fetchBoats = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/boats/boatsd');
+      const response = await axios.get('https://waterway3.onrender.com/api/boats/boatsd');
       setBoats(response.data);
       setFilteredBoats(response.data);
     } catch (error) {
@@ -267,10 +267,10 @@ const UserBoatList = () => {
                   <div key={boat._id} style={styles.boatCard}>
                     <div style={styles.boatImageContainer}>
                       <img
-                        src={`http://localhost:8080/uploads/${boat.image}`}
+                        src={`https://waterway3.onrender.com/uploads/${boat.image}`}
                         alt={boat.boatName}
                         style={styles.boatImage}
-                        onClick={() => handleImageClick(`http://localhost:8080/uploads/${boat.image}`)}
+                        onClick={() => handleImageClick(`https://waterway3.onrender.com/uploads/${boat.image}`)}
                       />
                       <div style={styles.boatType}>{boat.boatType}</div>
                     </div>

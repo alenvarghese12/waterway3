@@ -42,7 +42,7 @@ const FoodSelectionPage = () => {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/food/food-items/${ownerId}`);
+        const response = await axios.get(`https://waterway3.onrender.com/api/food/food-items/${ownerId}`);
         const items = response.data;
         setFoodItems(items);
         
@@ -114,7 +114,7 @@ const FoodSelectionPage = () => {
     <div key={food._id} style={styles.foodCard}>
       <div style={styles.foodImageContainer}>
         <img 
-          src={food.image ? `http://localhost:8080/uploads/${food.image}` : 'default-food.jpg'} 
+          src={food.image ? `https://waterway3.onrender.com/uploads/${food.image}` : 'default-food.jpg'} 
           alt={food.name}
           style={styles.foodImage}
         />

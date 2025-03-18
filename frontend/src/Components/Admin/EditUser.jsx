@@ -14,7 +14,7 @@ const EditUser = () => {
     // Fetch user details when the component loads
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/auth/users/${userId}`);
+        const response = await axios.get(`https://waterway3.onrender.com/api/auth/users/${userId}`);
         setName(response.data.name);
         setEmail(response.data.email);
       } catch (error) {
@@ -28,7 +28,7 @@ const EditUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/auth/users/${userId}`, { name, email });
+      await axios.put(`https://waterway3.onrender.com/api/auth/users/${userId}`, { name, email });
       setSuccess('User updated successfully');
       navigate('/admin/viewusers');  // Redirect back to View Users after updating
     } catch (error) {

@@ -24,7 +24,7 @@ const CompletedBookingCard = ({ booking }) => {
             <div className="booking-content">
                 <div className="boat-image">
                     <img 
-                        src={booking.boatImage ? `http://localhost:8080/uploads/${booking.boatImage}` : '/default-boat.png'} 
+                        src={booking.boatImage ? `https://waterway3.onrender.com/uploads/${booking.boatImage}` : '/default-boat.png'} 
                         alt={booking.boatName || 'Boat'} 
                     />
                 </div>
@@ -81,7 +81,7 @@ const UpcomingBookingCard = ({ booking, onCancel }) => {
             <div className="booking-content">
                 <div className="boat-image">
                     <img 
-                        src={booking.boatImage ? `http://localhost:8080/uploads/${booking.boatImage}` : '/default-boat.png'} 
+                        src={booking.boatImage ? `https://waterway3.onrender.com/uploads/${booking.boatImage}` : '/default-boat.png'} 
                         alt={booking.boatName || 'Boat'} 
                     />
                 </div>
@@ -137,7 +137,7 @@ const BookingD = () => {
                     throw new Error('User ID is not available');
                 }
                 console.log('Fetching bookings for User ID:', userId); // Log the user ID
-                const response = await fetch(`http://localhost:8080/api/bookings/user/${userId}`);
+                const response = await fetch(`https://waterway3.onrender.com/api/bookings/user/${userId}`);
                 
                 if (!response.ok) {
                     throw new Error('Failed to fetch booking details');
@@ -148,7 +148,7 @@ const BookingD = () => {
                 setBookings(data);
 
                 // Fetch user details to get the name
-                const userResponse = await fetch(`http://localhost:8080/api/auth/user/${userId}`);
+                const userResponse = await fetch(`https://waterway3.onrender.com/api/auth/user/${userId}`);
                 if (userResponse.ok) {
                     const userData = await userResponse.json();
                     setUserName(userData.name);
@@ -165,7 +165,7 @@ const BookingD = () => {
 
     const handleCancelBooking = async (bookingId) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}/cancel`, {
+            const response = await fetch(`https://waterway3.onrender.com/api/bookings/${bookingId}/cancel`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const BoatApproval = () => {
     // Fetch pending boats from the server
     const fetchPendingBoats = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/boats/pending-boats');
+        const response = await axios.get('https://waterway3.onrender.com/api/boats/pending-boats');
         console.log(response.data);  // Log the data structure
         setPendingBoats(response.data);
       } catch (error) {
@@ -21,7 +21,7 @@ const BoatApproval = () => {
   // Approve a boat
   const handleApprove = async (boatId) => {
     try {
-      await axios.put(`http://localhost:8080/api/boats/approve/${boatId}`);
+      await axios.put(`https://waterway3.onrender.com/api/boats/approve/${boatId}`);
       alert('Boat approved successfully');
       setPendingBoats(pendingBoats.filter(boat => boat._id !== boatId)); // Remove approved boat from list
     } catch (error) {
@@ -32,7 +32,7 @@ const BoatApproval = () => {
   // Disapprove (delete) a boat
   const handleDisapprove = async (boatId) => {
     try {
-      await axios.delete(`http://localhost:8080/api /boats/disapprove/${boatId}`);
+      await axios.delete(`https://waterway3.onrender.com/api /boats/disapprove/${boatId}`);
       alert('Boat disapproved and deleted');
       setPendingBoats(pendingBoats.filter(boat => boat._id !== boatId)); // Remove disapproved boat from list
     } catch (error) {
@@ -50,7 +50,7 @@ const BoatApproval = () => {
           pendingBoats.map(boat => (
             <div key={boat._id} className="boat-item">
               <img
-              src={`http://localhost:8080/uploads/${boat.image}`} // Assuming boat image is saved in an 'uploads' folder on the server
+              src={`https://waterway3.onrender.com/uploads/${boat.image}`} // Assuming boat image is saved in an 'uploads' folder on the server
               alt={boat.boatName}
               className="boat-image"
             />
@@ -66,7 +66,7 @@ const BoatApproval = () => {
               <p><strong>Status:</strong> {boat.status}</p>
               <p><strong>License Number:</strong> {boat.licenseNumber}</p>
               <a
-                href={`http://localhost:8080/uploads/${boat.licenseDocument}`} // Link to view license document
+                href={`https://waterway3.onrender.com/uploads/${boat.licenseDocument}`} // Link to view license document
                 target="_blank"
                 rel="noopener noreferrer"
               >

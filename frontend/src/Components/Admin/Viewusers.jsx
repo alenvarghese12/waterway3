@@ -64,7 +64,7 @@ const Viewusers = () => {
   // useEffect(() => {
   //   const fetchUsers = async () => {
   //     try {
-  //       const response = await axios.get('http://localhost:8080/api/auth/users');
+  //       const response = await axios.get('https://waterway3.onrender.com/api/auth/users');
   //       // Filter out admin users
   //       const nonAdminUsers = response.data.filter(user => user.role !== 'admin');
   //       setUsers(nonAdminUsers);
@@ -78,7 +78,7 @@ const Viewusers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/auth/users');
+        const response = await axios.get('https://waterway3.onrender.com/api/auth/users');
         // Filter out inactive users
         const activeUsers = response.data.filter(user => user.status === 'Active');
         setUsers(activeUsers);
@@ -93,7 +93,7 @@ const Viewusers = () => {
 
   // const handleDelete = async (userId) => {
   //   try {
-  //     await axios.delete(`http://localhost:8080/api/auth/users/${userId}`);
+  //     await axios.delete(`https://waterway3.onrender.com/api/auth/users/${userId}`);
   //     // After deletion, update the users list
   //     setUsers(users.filter(user => user._id !== userId));
   //   } catch (error) {
@@ -104,7 +104,7 @@ const Viewusers = () => {
   const handleDelete = async (userId) => {
     try {
       // Mark the user as inactive in the backend
-      await axios.delete(`http://localhost:8080/api/auth/users/${userId}`);
+      await axios.delete(`https://waterway3.onrender.com/api/auth/users/${userId}`);
   
       // Update the users list in the state to hide the inactive user
       setUsers(users.filter(user => user._id !== userId));

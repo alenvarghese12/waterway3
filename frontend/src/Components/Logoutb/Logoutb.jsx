@@ -9,7 +9,7 @@ const Logoutb = () => {
   const handleLogout = async () => {
     try {
      
-      const response = await axios.post('http://localhost:8080/api/auth/logoutp');
+      const response = await axios.post('https://waterway3.onrender.com/api/auth/logoutp');
       if (response.data.message === 'Logged out successfully') {
         localStorage.removeItem('token');
         localStorage.removeItem('email');

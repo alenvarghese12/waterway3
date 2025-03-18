@@ -19,7 +19,7 @@
 //           throw new Error('No token found');
 //         }
   
-//         const response = await axios.get('http://localhost:8080/api/auth/user-data', {
+//         const response = await axios.get('https://waterway3.onrender.com/api/auth/user-data', {
 //           headers: {
 //             Authorization: `Bearer ${token}` // Include the token in the Authorization header
 //           }
@@ -45,7 +45,7 @@
 
 //   const handleUnavailableDatesSubmit = async () => {
 //     try {
-//       await axios.post(`http://localhost:8080/api/boats/${boatId}/unavailable-dates`, { dates: unavailableDates });
+//       await axios.post(`https://waterway3.onrender.com/api/boats/${boatId}/unavailable-dates`, { dates: unavailableDates });
 //       alert('Unavailable dates updated');
 //     } catch (error) {
 //       console.error('Error updating unavailable dates:', error);
@@ -54,7 +54,7 @@
 
 //   const handleFoodCustomizationSubmit = async () => {
 //     try {
-//       await axios.post(`http://localhost:8080/api/boats/${boatId}/food-customization`, { customization: foodCustomization });
+//       await axios.post(`https://waterway3.onrender.com/api/boats/${boatId}/food-customization`, { customization: foodCustomization });
 //       alert('Food customization updated');
 //     } catch (error) {
 //       console.error('Error updating food customization:', error);
@@ -128,7 +128,7 @@ const BoatMenu = () => {
   useEffect(() => {
     const fetchFoodData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/food/${boatId}/food`);
+        const response = await axios.get(`https://waterway3.onrender.com/api/food/${boatId}/food`);
         setFoodCustomization(response.data);
       } catch (error) {
         console.error('Error fetching food data:', error);
@@ -157,7 +157,7 @@ const BoatMenu = () => {
   useEffect(() => {
     const fetchBoatDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/boats/menu/${boatId}`);
+        const response = await axios.get(`https://waterway3.onrender.com/api/boats/menu/${boatId}`);
         setBoat(response.data);
       } catch (error) {
         console.error('Error fetching boat details:', error);
@@ -173,7 +173,7 @@ const BoatMenu = () => {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No token found');
 
-        const response = await axios.get('http://localhost:8080/api/auth/user-data', {
+        const response = await axios.get('https://waterway3.onrender.com/api/auth/user-data', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -191,7 +191,7 @@ const BoatMenu = () => {
 
   const handleUnavailableDatesSubmit = async () => {
     try {
-      await axios.post(`http://localhost:8080/api/boats/${boatId}/unavailable-dates`, { dates: unavailableDates });
+      await axios.post(`https://waterway3.onrender.com/api/boats/${boatId}/unavailable-dates`, { dates: unavailableDates });
       alert('Unavailable dates updated');
     } catch (error) {
       console.error('Error updating unavailable dates:', error);
@@ -249,7 +249,7 @@ const BoatMenu = () => {
           dinner: foodCustomization.dinner
         }
       };
-      await axios.post(`http://localhost:8080/api/food/${boatId}/food`, foodData);
+      await axios.post(`https://waterway3.onrender.com/api/food/${boatId}/food`, foodData);
       alert('Food customization updated');
     } catch (error) {
       console.error('Error updating food customization:', error);

@@ -13,7 +13,7 @@ const OwnerBoatsBookings = () => {
     useEffect(() => {
         const fetchBoatsAndBookings = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/api/bookings/owner-boats-bookings?ownerId=${ownerId}`, {
+                const response = await fetch(`https://waterway3.onrender.com/api/bookings/owner-boats-bookings?ownerId=${ownerId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
