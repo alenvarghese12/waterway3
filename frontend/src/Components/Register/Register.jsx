@@ -32,7 +32,7 @@
 //     }
 
 //     try {
-//       const url = "https://waterway3.onrender.com/api/users";
+//       const url = "http://localhost:8080/api/users";
 //       const { data: res } = await axios.post(url, {
 //         name: formData.name,
 //         email: formData.email,
@@ -235,7 +235,7 @@
 //     }
   
 //     try {
-//       const url = "https://waterway3.onrender.com/api/users";
+//       const url = "http://localhost:8080/api/users";
 //       const userPayload = {
 //         name: formData.name,
 //         email: formData.email,
@@ -474,7 +474,7 @@ const Register = () => {
     }
   
     try {
-      const url = "https://waterway3.onrender.com/api/users";
+      const url = "http://localhost:8080/api/users";
       const { data: res } = await axios.post(url, {
         name: formData.name,
         email: formData.email,
@@ -497,7 +497,7 @@ const Register = () => {
   
 
   const handleGoogleSignIn = () => {
-    window.open("https://waterway3.onrender.com/auth/google/callback", "_self")
+    window.open("http://localhost:8080/auth/google/callback", "_self")
 };
 
   return (

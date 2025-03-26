@@ -12,7 +12,7 @@ const VerifyOtp = () => {
     e.preventDefault();
     try {
       const email = localStorage.getItem("email");
-      const { data } = await axios.post("https://waterway3.onrender.com/api/users/verify-otp", { email, otp });
+      const { data } = await axios.post("http://localhost:8080/api/users/verify-otp", { email, otp });
       alert(data.message);
       navigate("/login");
     } catch (err) {

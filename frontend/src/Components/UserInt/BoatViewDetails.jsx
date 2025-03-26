@@ -88,7 +88,7 @@ const BoatViewDetails = () => {
     const fetchFoodItems = async () => {
       try {
         if (boat && boat.ownerId) {
-          const response = await axios.get(`https://waterway3.onrender.com/api/food/food-items/${boat.ownerId}`);
+          const response = await axios.get(`http://localhost:8080/api/food/food-items/${boat.ownerId}`);
           setFoodItems(response.data);
         }
       } catch (error) {
@@ -106,7 +106,7 @@ const BoatViewDetails = () => {
           // Get token from localStorage
           const token = localStorage.getItem('token');
           const response = await axios.get(
-            `https://waterway3.onrender.com/api/boats/boatsdg/${boat._id}/amenities`,
+            `http://localhost:8080/api/boats/boatsdg/${boat._id}/amenities`,
             {
               headers: {
                 'Authorization': `Bearer ${token}` // Add authorization header
@@ -133,7 +133,7 @@ const BoatViewDetails = () => {
         if (boat && boat._id) {
           const token = localStorage.getItem('token');
           const response = await axios.get(
-            `https://waterway3.onrender.com/api/boats/${boat._id}/unavailable-dates`,
+            `http://localhost:8080/api/boats/${boat._id}/unavailable-dates`,
             {
               headers: {
                 'Authorization': `Bearer ${token}`
@@ -162,7 +162,7 @@ const BoatViewDetails = () => {
         if (boat && boat._id) {
           const token = localStorage.getItem('token');
           const response = await axios.get(
-            `https://waterway3.onrender.com/api/overview/${boat._id}`,
+            `http://localhost:8080/api/overview/${boat._id}`,
             {
               headers: {
                 'Authorization': `Bearer ${token}`
@@ -343,7 +343,7 @@ const BoatViewDetails = () => {
 
             console.log('Sending booking data:', paymentDetails);
 
-            const bookingResponse = await fetch('https://waterway3.onrender.com/api/bookings/bookingss', {
+            const bookingResponse = await fetch('http://localhost:8080/api/bookings/bookingss', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -353,6 +353,13 @@ const BoatViewDetails = () => {
 
             if (!bookingResponse.ok) {
               const errorData = await bookingResponse.json();
+              
+              // Handle fraud detection rejection specifically
+              if (bookingResponse.status === 403 && errorData.error.includes('fraud')) {
+                alert('Booking Failed: This transaction has been flagged as potentially fraudulent. Please contact customer support for assistance.');
+                return;
+              }
+              
               throw new Error(`Booking failed: ${JSON.stringify(errorData)}`);
             }
 
@@ -509,7 +516,9 @@ const BoatViewDetails = () => {
     switch (currentStep) {
       case 1:
         return (
+          
           <div id="over" style={styles.over}>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             {/* <div style={navbarStyles.navbar}>
               {['Overview', 'Amenities', 'Property Policies', 'Select Food', 'Security'].map((section) => (
                 <button
@@ -544,7 +553,7 @@ const BoatViewDetails = () => {
               <div style={styles.imageGallery}>
                 <div style={styles.mainImageContainer}>
                   <img
-                    src={boat.image ? `https://waterway3.onrender.com/uploads/${boat.image}` : 'default-image-url.jpg'}
+                    src={boat.image ? `http://localhost:8080/uploads/${boat.image}` : 'default-image-url.jpg'}
                     alt={boat.boatName}
                     style={styles.mainImage}
                   />
@@ -553,7 +562,7 @@ const BoatViewDetails = () => {
                   {overviewData.images.slice(0, 4).map((image, index) => (
                     <div key={index} style={styles.thumbnailWrapper}>
                       {/* <img
-                        src={`https://waterway3.onrender.com/uploads/${image}`}
+                        src={`http://localhost:8080/uploads/${image}`}
                         alt={`${boat.boatName} view ${index + 1}`}
                         style={styles.thumbnailImage}
                       /> */}

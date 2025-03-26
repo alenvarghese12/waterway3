@@ -51,6 +51,7 @@ const Admin = () => {
           {/* <Link to="">Delete Users</Link> */}
           {/* <Link to="manage-boat-owners">Manage Boat Owners</Link> */}
           {/* Add other links as needed */}
+          <Link to="fraud-analysis">Fraud Analysis</Link>
           <Logoutb />
         </div>
       </div>

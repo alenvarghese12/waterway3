@@ -21,7 +21,7 @@ const Loginp = () => {
     e.preventDefault();
 
     try {
-        const url = "https://waterway3.onrender.com/api/auth/login";
+        const url = "http://localhost:8080/api/auth/login";
         console.log("Sending login request with:", formData); // Add logging
         const { data: res } = await axios.post(url, formData);
         console.log("Login response:", res); // Add logging
@@ -155,7 +155,7 @@ export default Loginp;
 //     e.preventDefault();
 
 //     try {
-//       const url = "https://waterway3.onrender.com/api/auth/login";
+//       const url = "http://localhost:8080/api/auth/login";
 //       const { data: res } = await axios.post(url, formData, { withCredentials: true });
 
 //       if (res.redirectUrl) {
@@ -178,7 +178,7 @@ export default Loginp;
 //   };
 
 //   const handleGoogleLogin = () => {
-//     window.location.href = "https://waterway3.onrender.com/api/auth/google";
+//     window.location.href = "http://localhost:8080/api/auth/google";
 //   };
 
 //   return (

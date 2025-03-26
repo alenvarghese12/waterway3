@@ -22,7 +22,7 @@ const ResetPassword = () => {
     
         setLoading(true); // Set loading state
         try {
-            const { data } = await axios.post(`https://waterway3.onrender.com/api/auth/resetpassword/${token}`, { password });
+            const { data } = await axios.post(`http://localhost:8080/api/auth/resetpassword/${token}`, { password });
             setMessage(data.message);
             setError('');
             setTimeout(() => {

@@ -8,7 +8,7 @@ const ChatComponent = ({ boatId, boatOwnerId, customerId, currentUser }) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`https://waterway3.onrender.com/api/chat/${boatId}/${customerId}`);
+        const res = await axios.get(`http://localhost:8080/api/chat/${boatId}/${customerId}`);
         setMessages(res.data.messages);
       } catch (error) {
         console.error('Error fetching chat messages:', error);
@@ -22,7 +22,7 @@ const ChatComponent = ({ boatId, boatOwnerId, customerId, currentUser }) => {
     if (!newMessage.trim()) return;
 
     try {
-      const res = await axios.post('https://waterway3.onrender.com/api/chat/send', {
+      const res = await axios.post('http://localhost:8080/api/chat/send', {
         boatId,
         boatOwnerId,
         customerId,

@@ -39,7 +39,7 @@ const UserProfile = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('https://waterway3.onrender.com/api/auth/sessionn', {
+      const response = await fetch('http://localhost:8080/api/auth/sessionn', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -120,7 +120,7 @@ const UserProfile = () => {
         formData.append('newPassword', userData.newPassword);
       }
 
-      const response = await fetch('https://waterway3.onrender.com/api/auth/update-profile', {
+      const response = await fetch('http://localhost:8080/api/auth/update-profile', {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,

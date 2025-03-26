@@ -38,6 +38,11 @@ const bookingSchema = new mongoose.Schema({
       type: [Number],
       default: undefined
     }
+  },
+  status: {
+    type: String,
+    enum: ['confirmed', 'cancelled', 'completed'],
+    default: 'confirmed'
   }
 });
 

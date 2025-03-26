@@ -158,7 +158,7 @@ const BoatRegistration = () => {
   useEffect(() => {
     const fetchBoatTypes = async () => {
       try {
-        const response = await axios.get('https://waterway3.onrender.com/api/boats/types');
+        const response = await axios.get('http://localhost:8080/api/boats/types');
         setBoatTypes(response.data.filter(type => type.trim() !== '' && type.length > 2));
       } catch (error) {
         console.error('Failed to fetch boat types', error);
@@ -175,7 +175,7 @@ const BoatRegistration = () => {
       }
 
       try {
-        const response = await axios.get('https://waterway3.onrender.com/api/auth/sessionn', {
+        const response = await axios.get('http://localhost:8080/api/auth/sessionn', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -425,7 +425,7 @@ const BoatRegistration = () => {
         console.log('Sending data:', Object.fromEntries(data.entries()));
 
         const registerResponse = await axios.post(
-            'https://waterway3.onrender.com/api/boats/register', 
+            'http://localhost:8080/api/boats/register', 
             data, 
             {
                 headers: {

@@ -73,6 +73,7 @@ const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 // Import Passport configuration
 const chatbotRoutess = require('./routes/chatbotRoutes');
 const chatRoutes = require('./routes/chat')
+const bookingRou = require('./routes/bookings');
 
 
 const app = express();
@@ -102,8 +103,8 @@ const preventCache = (req, res, next) => {
 
 app.use(express.json());
 app.use(cors({
-    // origin: "http://localhost:5173",
-    origin: "https://waterway3-1.onrender.com",
+    origin: "http://localhost:5173",
+    // origin: "https://waterway3-1.onrender.com",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -224,6 +225,7 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/chatbotRoutes',chatbotRoutess)
 app.use('/api/food', foodRoutes);
 app.use('/api/chat',chatRoutes)
+app.use('/api/book', bookingRou);
 // app.use('/api/food-items', foodRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 

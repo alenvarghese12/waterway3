@@ -9,7 +9,7 @@ const EditBoat = ({ boat, onUpdate, onClose }) => {
   useEffect(() => {
     // Set the initial image preview
     if (boat.image) {
-      setImagePreview(`https://waterway3.onrender.com/uploads/${boat.image}`); // Update this path as needed
+      setImagePreview(`http://localhost:8080/uploads/${boat.image}`); // Update this path as needed
     }
   }, [boat]);
 
@@ -26,7 +26,7 @@ const EditBoat = ({ boat, onUpdate, onClose }) => {
     if (file) {
       setImagePreview(URL.createObjectURL(file));
     } else {
-      setImagePreview(`https://waterway3.onrender.com/uploads/${boat.image}`); // Reset to current image if no file selected
+      setImagePreview(`http://localhost:8080/uploads/${boat.image}`); // Reset to current image if no file selected
     }
   };
 
@@ -45,7 +45,7 @@ const EditBoat = ({ boat, onUpdate, onClose }) => {
     }
 
     try {
-      const response = await axios.put(`https://waterway3.onrender.com/api/boats/boatsd/${boat._id}`, formDataToSubmit, {
+      const response = await axios.put(`http://localhost:8080/api/boats/boatsd/${boat._id}`, formDataToSubmit, {
         headers: {
           'Content-Type': 'multipart/form-data', // Important for file uploads
         },

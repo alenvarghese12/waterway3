@@ -105,7 +105,7 @@ const BoatDetails = () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/policies`,
+          `http://localhost:8080/api/boats/boatsdg/${boatId}/policies`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -130,7 +130,7 @@ const BoatDetails = () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/amenities`,
+          `http://localhost:8080/api/boats/boatsdg/${boatId}/amenities`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -165,7 +165,7 @@ const BoatDetails = () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/security`,
+          `http://localhost:8080/api/boats/boatsdg/${boatId}/security`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -205,11 +205,11 @@ const BoatDetails = () => {
       try {
       const token = localStorage.getItem('token');
       // First, fetch the boat details
-      const boatResponse = await axios.get(`https://waterway3.onrender.com/api/boats/boatsdg/${boatId}`);
+      const boatResponse = await axios.get(`http://localhost:8080/api/boats/boatsdg/${boatId}`);
       
       // Fetch overview details
       const overviewResponse = await axios.get(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/overview`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/overview`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -234,7 +234,7 @@ const BoatDetails = () => {
         // Set preview images for existing images
         if (overviewResponse.data?.images) {
           const previews = overviewResponse.data.images.map(image => ({
-            url: `https://waterway3.onrender.com/uploads/${image}`,
+            url: `http://localhost:8080/uploads/${image}`,
             file: null
           }));
           setPreviewImages(previews);
@@ -307,7 +307,7 @@ const BoatDetails = () => {
 
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/overview`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/overview`,
         formDataToSend,
         {
           headers: {
@@ -335,7 +335,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.delete(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/overview/images/${imageIndex}`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/overview/images/${imageIndex}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -354,7 +354,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.delete(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/overview/highlights/${highlightIndex}`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/overview/highlights/${highlightIndex}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -384,7 +384,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/amenities`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/amenities`,
         {
           category: newAmenity.category,
           item: {
@@ -418,7 +418,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.delete(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/amenities/${category}/${itemId}`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/amenities/${category}/${itemId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -447,7 +447,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `https://waterway3.onrender.com/api/food/boat/${boatId}`,
+        `http://localhost:8080/api/food/boat/${boatId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -503,7 +503,7 @@ const BoatDetails = () => {
       const token = localStorage.getItem('token');
       
       // First get the user data to get boatOwnerId
-      const userResponse = await axios.get('https://waterway3.onrender.com/api/auth/user-data', {
+      const userResponse = await axios.get('http://localhost:8080/api/auth/user-data', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -537,7 +537,7 @@ const BoatDetails = () => {
       }
 
       const response = await axios.post(
-        'https://waterway3.onrender.com/api/food/food-items',
+        'http://localhost:8080/api/food/food-items',
         formData,
         {
           headers: {
@@ -575,7 +575,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.delete(
-        `https://waterway3.onrender.com/api/food/food-items/${foodItemId}`,
+        `http://localhost:8080/api/food/food-items/${foodItemId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -666,7 +666,7 @@ const BoatDetails = () => {
       if (editingPolicy) {
         // Update existing policy
         response = await axios.put(
-          `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/policies/${editingPolicy}`,
+          `http://localhost:8080/api/boats/boatsdg/${boatId}/policies/${editingPolicy}`,
           policyData,
           {
             headers: {
@@ -682,7 +682,7 @@ const BoatDetails = () => {
       } else {
         // Add new policy
         response = await axios.post(
-          `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/policies`,
+          `http://localhost:8080/api/boats/boatsdg/${boatId}/policies`,
           policyData,
           {
             headers: {
@@ -723,7 +723,7 @@ const BoatDetails = () => {
       }
 
       await axios.delete(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/policies/${policyId}`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/policies/${policyId}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -770,7 +770,7 @@ const BoatDetails = () => {
       };
 
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/location`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/location`,
         locationData
       );
       
@@ -861,7 +861,7 @@ const BoatDetails = () => {
       }
 
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/security`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/security`,
         formData,
         {
           headers: {
@@ -889,7 +889,7 @@ const BoatDetails = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/cancellation-policy`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/cancellation-policy`,
         cancellationPolicy
       );
 
@@ -911,7 +911,7 @@ const BoatDetails = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `https://waterway3.onrender.com/api/boats/boatsdg/${boatId}/amenities/${item._id}`,
+        `http://localhost:8080/api/boats/boatsdg/${boatId}/amenities/${item._id}`,
         {
           category,
           item: {
@@ -1076,7 +1076,7 @@ const BoatDetails = () => {
                 {boat?.overview?.images?.map((image, index) => (
                   <img
                     key={index}
-                    src={`https://waterway3.onrender.com/uploads/${image}`}
+                    src={`http://localhost:8080/uploads/${image}`}
                     alt={`Boat ${index + 1}`}
                     style={styles.galleryImage}
                   />
@@ -1341,7 +1341,7 @@ const BoatDetails = () => {
                   <div style={styles.foodImageContainer}>
                     {item.image && (
                       <img
-                        src={`https://waterway3.onrender.com/uploads/${item.image}`}
+                        src={`http://localhost:8080/uploads/${item.image}`}
                         alt={item.name}
                         style={styles.foodImage}
                       />
@@ -1778,7 +1778,7 @@ const BoatDetails = () => {
                       <p><strong>Valid Until:</strong> {new Date(boat.security.validUntil).toLocaleDateString()}</p>
                       {boat.security.safetyDocument && (
                         <a 
-                          href={`https://waterway3.onrender.com/uploads/${boat.security.safetyDocument}`}
+                          href={`http://localhost:8080/uploads/${boat.security.safetyDocument}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           style={styles.documentLink}
@@ -1794,7 +1794,7 @@ const BoatDetails = () => {
                       <p><strong>Valid Until:</strong> {new Date(boat.security.insuranceValidUntil).toLocaleDateString()}</p>
                       {boat.security.insuranceDocument && (
                         <a 
-                          href={`https://waterway3.onrender.com/uploads/${boat.security.insuranceDocument}`}
+                          href={`http://localhost:8080/uploads/${boat.security.insuranceDocument}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           style={styles.documentLink}

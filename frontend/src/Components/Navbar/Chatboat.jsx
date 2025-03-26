@@ -17,7 +17,7 @@ function Chatboat() {
     setInput('');
 
     try {
-      const response = await axios.post('https://waterway3.onrender.com/api/chatbotRoutes/chatbot', {
+      const response = await axios.post('http://localhost:8080/api/chatbotRoutes/chatbot', {
         message: input,
       });
 

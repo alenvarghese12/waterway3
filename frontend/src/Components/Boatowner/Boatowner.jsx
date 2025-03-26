@@ -31,7 +31,7 @@ const Boatowner = () => {
 
       try {
         console.log("Fetching session data with token:", token);
-        const response = await fetch('https://waterway3.onrender.com/api/auth/sessionn', {
+        const response = await fetch('http://localhost:8080/api/auth/sessionn', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -73,6 +73,8 @@ const Boatowner = () => {
           <li><Link to="boatregister" state={{ ownerId }}>Register Boat</Link></li>
           <li><Link to="boatlist">Boat Details</Link></li>
           <li><Link to="bookingsowner" state={{ ownerId }}>Bookings</Link></li> {/* Pass ownerId here */}
+          <li><Link to="fraud-detection">Fraud Detection</Link></li>
+          {/* <li><Link to="fraud-alerts">Fraud Alerts</Link></li> */}
           <li><Logoutb /></li>
           <li className="user-info">
             <img src={userIcon} alt="User Icon" className="user-icon" />
@@ -82,9 +84,9 @@ const Boatowner = () => {
       </nav>
 
       <div className="dashboard-header">
-        <h1>Welcome, {userDetails.name ? userDetails.name : 'Boatowner'}</h1>
+        {/* <h1>Welcome, {userDetails.name ? userDetails.name : 'Boatowner'}</h1>
         <p>Email: {userDetails.email}</p>
-        <p>License Number: {userDetails.licenseNumber}</p>
+        <p>License Number: {userDetails.licenseNumber}</p> */}
       </div>
 
       <div className="boatowner-content">

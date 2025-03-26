@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Fraud Detection Service Manager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .card-title {
+            margin-top: 0;
+            color: #4285f4;
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px 3px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #4285f4;
+            color: white;
+        }
+        .btn-success {
+            background-color: #0f9d58;
+            color: white;
+        }
+        .btn-warning {
+            background-color: #f4b400;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #db4437;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .status-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-online {
+            background-color: #0f9d58;
+        }
+        .status-offline {
+            background-color: #db4437;
+        }
+        .log-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 12px;
+        }
+        .code {
+            background-color: #f1f3f4;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .test-card {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .test-result {
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .btn {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel Fraud Detection Service Manager</h1>
+        
+        <div class="card">
+            <h2 class="card-title">Service Status</h2>
+            <div class="status-container">
+                <p><span class="status-indicator status-offline" id="status-indicator"></span> 
+                <span id="status-text">Checking status...</span></p>
+                <p>Service URL: <code>http://localhost:5001</code></p>
+                <button class="btn btn-primary" id="check-status-btn">Check Status</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Service Controls</h2>
+            <button class="btn btn-success" id="start-service-btn">Start Service</button>
+            <button class="btn btn-warning" id="restart-service-btn">Restart Service</button>
+            <button class="btn btn-danger" id="stop-service-btn">Stop Service</button>
+        </div>
+
+        <div class="card test-card">
+            <div>
+                <h2 class="card-title">Test Prediction</h2>
+                <button class="btn btn-primary" id="test-predict-btn">Test Prediction</button>
+                <button class="btn btn-primary" id="test-compare-btn">Test Compare</button>
+            </div>
+            <div id="test-result" class="test-result">Result will appear here</div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Example Usage</h2>
+            <div class="code">
+                <p>// Example Node.js code to call the service:</p>
+                <pre>
+fetch('http://localhost:5001/predict', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    lead_time: 30,
+    no_of_adults: 2,
+    no_of_children: 1,
+    no_of_weekend_nights: 2,
+    no_of_week_nights: 3,
+    type_of_meal_plan: "Meal Plan 1",
+    required_car_parking_space: 0,
+    room_type_reserved: "Standard",
+    market_segment_type: "Online",
+    repeated_guest: "Yes",
+    no_of_previous_cancellations: 0,
+    no_of_previous_bookings_not_canceled: 2,
+    avg_price_per_room: 120,
+    no_of_special_requests: 2,
+    no_of_booking_changes: 1
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">Log</h2>
+            <div class="log-container" id="log-container">
+                <div class="log-entry">
+                    <span class="timestamp">[info]</span> Welcome to the Hotel Fraud Detection Service Manager
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const serviceUrl = 'http://localhost:5001';
+        const logContainer = document.getElementById('log-container');
+        const statusIndicator = document.getElementById('status-indicator');
+        const statusText = document.getElementById('status-text');
+        const testResult = document.getElementById('test-result');
+        
+        // Log helper function
+        function log(message, type = 'info') {
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            
+            const now = new Date();
+            const timestamp = now.toLocaleTimeString();
+            
+            logEntry.innerHTML = `<span class="timestamp">[${timestamp}] [${type}]</span> ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // Update status
+        function updateStatus(isOnline, message) {
+            statusIndicator.className = `status-indicator status-${isOnline ? 'online' : 'offline'}`;
+            statusText.textContent = message || (isOnline ? 'Service is running' : 'Service is not running');
+        }
+
+        // Check service status
+        document.getElementById('check-status-btn').addEventListener('click', function() {
+            log('Checking service status...');
+            fetch(`${serviceUrl}/status`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    log(`Service status: ${data.status}, Model loaded: ${data.modelLoaded}`);
+                    updateStatus(true, `Active - Version: ${data.version || '1.0.0'}`);
+                })
+                .catch(error => {
+                    log(`Failed to connect to service: ${error.message}`, 'error');
+                    updateStatus(false, 'Service is unreachable');
+                });
+        });
+
+        // Test prediction
+        document.getElementById('test-predict-btn').addEventListener('click', function() {
+            log('Testing prediction endpoint...');
+            
+            const testData = {
+                lead_time: 30,
+                no_of_adults: 2,
+                no_of_children: 1,
+                no_of_weekend_nights: 2,
+                no_of_week_nights: 3,
+                type_of_meal_plan: "Meal Plan 1",
+                required_car_parking_space: 0,
+                room_type_reserved: "Standard",
+                market_segment_type: "Online",
+                repeated_guest: "Yes",
+                no_of_previous_cancellations: 0,
+                no_of_previous_bookings_not_canceled: 2,
+                avg_price_per_room: 120,
+                no_of_special_requests: 2,
+                no_of_booking_changes: 1
+            };
+            
+            fetch(`${serviceUrl}/predict`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(testData),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    log(`Prediction received: Fraud Probability: ${data.fraud_probability}, Risk Level: ${data.risk_level}`);
+                    testResult.textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    log(`Prediction failed: ${error.message}`, 'error');
+                    testResult.textContent = `Error: ${error.message}`;
+                });
+        });
+        
+        // Test compare
+        document.getElementById('test-compare-btn').addEventListener('click', function() {
+            log('Testing compare-hotel-patterns endpoint...');
+            
+            fetch(`${serviceUrl}/compare-hotel-patterns`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: "test123"
+                }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    log(`Compare result received: Similarity Score: ${data.similarityScore}, Suspicious: ${data.isSuspicious}`);
+                    testResult.textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    log(`Compare failed: ${error.message}`, 'error');
+                    testResult.textContent = `Error: ${error.message}`;
+                });
+        });
+
+        // Start service
+        document.getElementById('start-service-btn').addEventListener('click', function() {
+            log('Starting service...');
+            // This will just open the batch file in a new window
+            window.open('start_simple.bat', '_blank');
+            setTimeout(() => {
+                document.getElementById('check-status-btn').click();
+            }, 3000);
+        });
+
+        // Initial status check
+        document.getElementById('check-status-btn').click();
+    </script>
+</body>
+</html> 

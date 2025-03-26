@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Fraud Detection Service Launcher</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        .status-card {
+            background-color: #f9f9f9;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-offline {
+            background-color: #ff4444;
+        }
+        .status-online {
+            background-color: #00C851;
+        }
+        .status-checking {
+            background-color: #ffbb33;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0055aa;
+        }
+        .btn-start {
+            background-color: #00C851;
+        }
+        .btn-start:hover {
+            background-color: #00a844;
+        }
+        .btn-disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .btn-disabled:hover {
+            background-color: #cccccc;
+        }
+        .actions {
+            margin-top: 30px;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            overflow: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+        }
+        .instructions {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ML Fraud Detection Service Launcher</h1>
+        
+        <div class="status-card">
+            <h3>
+                <span class="status-indicator status-offline" id="statusIndicator"></span>
+                Service Status: <span id="statusText">Checking...</span>
+            </h3>
+            <div id="statusDetails">Checking if the ML service is running...</div>
+        </div>
+        
+        <div class="actions">
+            <button class="btn btn-start" id="startButton" onclick="startService()">Start ML Service</button>
+            <button class="btn" id="checkButton" onclick="checkStatus()">Check Status</button>
+            <button class="btn" id="returnButton" onclick="returnToAdmin()">Return to Admin Panel</button>
+        </div>
+        
+        <div id="console" style="margin-top: 20px; display: none;">
+            <h3>Console Output</h3>
+            <pre id="consoleOutput"></pre>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <p>This page helps you start the Python ML service for fraud detection.</p>
+            <ol>
+                <li>Click the "Start ML Service" button to launch the Python server</li>
+                <li>Wait for the server to initialize (this may take a few seconds)</li>
+                <li>Once the status shows "Online", return to the Admin Panel</li>
+                <li>Refresh the Admin Panel to use ML-based fraud detection</li>
+            </ol>
+            <p><strong>Note:</strong> The ML service needs to be running for ML-based fraud detection to work. If you close this window, the service will continue running in the background.</p>
+        </div>
+    </div>
+
+    <script>
+        // Service URL
+        const SERVICE_URL = 'http://localhost:5001/status';
+        let checkingStatus = false;
+
+        // Check if service is running
+        async function checkStatus() {
+            if (checkingStatus) return;
+            
+            checkingStatus = true;
+            const statusIndicator = document.getElementById('statusIndicator');
+            const statusText = document.getElementById('statusText');
+            const statusDetails = document.getElementById('statusDetails');
+            
+            // Update UI to checking state
+            statusIndicator.className = 'status-indicator status-checking';
+            statusText.textContent = 'Checking...';
+            statusDetails.textContent = 'Contacting the ML service...';
+            
+            try {
+                const response = await fetch(SERVICE_URL, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    // Add a timeout to the fetch request
+                    signal: AbortSignal.timeout(3000)
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.status === 'active') {
+                        statusIndicator.className = 'status-indicator status-online';
+                        statusText.textContent = 'Online';
+                        statusDetails.innerHTML = `
+                            <p>The ML service is running correctly.</p>
+                            <p><strong>Version:</strong> ${data.version || 'Unknown'}</p>
+                            <p><strong>Last Checked:</strong> ${new Date().toLocaleString()}</p>
+                        `;
+                        document.getElementById('startButton').disabled = true;
+                        document.getElementById('startButton').className = 'btn btn-disabled';
+                    } else {
+                        throw new Error('Service returned unexpected status');
+                    }
+                } else {
+                    throw new Error(`HTTP Error: ${response.status}`);
+                }
+            } catch (error) {
+                statusIndicator.className = 'status-indicator status-offline';
+                statusText.textContent = 'Offline';
+                statusDetails.innerHTML = `
+                    <p>The ML service is not running.</p>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p><strong>Last Checked:</strong> ${new Date().toLocaleString()}</p>
+                    <p>Click the "Start ML Service" button to launch the service.</p>
+                `;
+                document.getElementById('startButton').disabled = false;
+                document.getElementById('startButton').className = 'btn btn-start';
+            } finally {
+                checkingStatus = false;
+            }
+        }
+
+        // Start the service 
+        function startService() {
+            const startButton = document.getElementById('startButton');
+            const consoleDiv = document.getElementById('console');
+            const consoleOutput = document.getElementById('consoleOutput');
+            
+            startButton.disabled = true;
+            startButton.className = 'btn btn-disabled';
+            startButton.textContent = 'Starting...';
+            
+            consoleDiv.style.display = 'block';
+            consoleOutput.textContent = 'Launching ML service...\n';
+            
+            // Open the batch file to start the service
+            window.open('start_simple.bat', '_blank');
+            
+            // Schedule status checks
+            consoleOutput.textContent += 'Waiting for service to start...\n';
+            
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            const checkInterval = setInterval(async () => {
+                attempts++;
+                consoleOutput.textContent += `Checking service status (attempt ${attempts}/${maxAttempts})...\n`;
+                
+                try {
+                    const response = await fetch(SERVICE_URL, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json'
+                        },
+                        signal: AbortSignal.timeout(2000)
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.status === 'active') {
+                            consoleOutput.textContent += 'Service started successfully!\n';
+                            clearInterval(checkInterval);
+                            checkStatus();
+                            startButton.textContent = 'Service Running';
+                        }
+                    } else {
+                        consoleOutput.textContent += `Service not yet available (HTTP ${response.status})...\n`;
+                    }
+                } catch (error) {
+                    consoleOutput.textContent += `Service not yet available (${error.message})...\n`;
+                }
+                
+                if (attempts >= maxAttempts) {
+                    consoleOutput.textContent += 'Maximum check attempts reached. The service might still be starting.\n';
+                    consoleOutput.textContent += 'Please check the command window that opened or try again.\n';
+                    clearInterval(checkInterval);
+                    startButton.disabled = false;
+                    startButton.className = 'btn btn-start';
+                    startButton.textContent = 'Retry Starting Service';
+                }
+                
+                // Scroll to bottom
+                consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            }, 2000);
+        }
+
+        // Return to admin panel
+        function returnToAdmin() {
+            window.location.href = '/admin/fraud';
+        }
+
+        // Check status when the page loads
+        window.onload = checkStatus;
+    </script>
+</body>
+</html> 

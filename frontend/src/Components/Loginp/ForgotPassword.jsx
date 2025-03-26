@@ -26,7 +26,7 @@
 
 //         setLoading(true);
 //         try {
-//             const { data } = await axios.post('https://waterway3.onrender.com/api/auth/forgot-password', { email });
+//             const { data } = await axios.post('http://localhost:8080/api/auth/forgot-password', { email });
 //             setMessage(data.message);
 //         } catch (error) {
 //             setMessage(error.response?.data?.message || 'Error processing your request');
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
 
         setLoading(true);
         try {
-            const { data } = await axios.post('https://waterway3.onrender.com/api/auth/forgot-password', { email });
+            const { data } = await axios.post('http://localhost:8080/api/auth/forgot-password', { email });
             setMessage(data.message);
 
             if (data.message && data.message.toLowerCase().includes('sent')) {

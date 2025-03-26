@@ -32,6 +32,9 @@ import AddFoodItem from './Components/Boatowner/AddFoodItem';
 import FoodSelectionPage from './Components/UserInt/FoodSelectionPage';
 import UserProfile from './Components/UserInt/UserProfile';
 import BoatDetails from './Components/Boatowner/BoatDetails';
+import FraudAnalysisPanel from './Components/Admin/FraudAnalysisPanel';
+import FraudDetection from './Components/Boatowner/Frauddetect';
+import FraudAlerts from './Components/Boatowner/FraudAlerts';
 
 const AppWrapper = () => {
   const location = useLocation();
@@ -72,6 +75,7 @@ const AppWrapper = () => {
           <Route path="boatapproval" element={<BoatApproval />} />
           {/* <Route path="/search/:query" element={<SearchResults />} /> */}
           {/* Add more admin-related routes here */}
+          <Route path="fraud-analysis" element={<FraudAnalysisPanel />} />
         </Route>
 
         <Route path="/boatowner/*" element={<Boatowner />}>
@@ -82,7 +86,8 @@ const AppWrapper = () => {
           <Route path="bookingsowner" element={<OwnerBoatsBookings />} /> {/* New route */}
           <Route path="add-food-item" element={<AddFoodItem />} />
           <Route path="boat-details/:boatId" element={<BoatDetails />} />
-          
+          <Route path="fraud-detection" element={<FraudDetection />} />
+          <Route path="fraud-alerts" element={<FraudAlerts />} />
         </Route>
 
         <Route path="/userint/*" element={<UserInt />}>

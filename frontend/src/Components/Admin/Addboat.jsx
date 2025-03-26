@@ -20,7 +20,7 @@ const Addboat = () => {
   useEffect(() => {
     const fetchBoats = async () => {
       try {
-        const response = await axios.get('https://waterway3.onrender.com/api/boats/types');
+        const response = await axios.get('http://localhost:8080/api/boats/types');
         console.log('Fetched boat types:', response.data);
         setBoats(response.data);
       } catch (error) {
@@ -52,7 +52,7 @@ const Addboat = () => {
     try {
       if (isEditing) {
         // Edit existing boat type
-        await axios.put(`https://waterway3.onrender.com/api/boats/${editBoatId}`, {
+        await axios.put(`http://localhost:8080/api/boats/${editBoatId}`, {
           type: trimmedBoatType,
         });
         setBoats((prevBoats) =>
@@ -64,7 +64,7 @@ const Addboat = () => {
         setEditBoatId(null);
       } else {
         // Add new boat type
-        const response = await axios.post('https://waterway3.onrender.com/api/boats', {
+        const response = await axios.post('http://localhost:8080/api/boats', {
           type: trimmedBoatType,
         });
 
@@ -83,7 +83,7 @@ const Addboat = () => {
   const handleDeleteBoat = async (id) => {
     try {
       console.log('Deleting boat with ID:', id); // Log the ID being passed
-      await axios.delete(`https://waterway3.onrender.com/api/boats/boatsde/${id}`);
+      await axios.delete(`http://localhost:8080/api/boats/boatsde/${id}`);
       // Handle successful deletion, e.g., update state
     } catch (error) {
       console.error('Failed to delete boat', error); // Log the error
